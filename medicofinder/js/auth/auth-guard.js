@@ -1,8 +1,12 @@
-const auth = firebase.auth();
+// File: js/auth/auth-guard.js
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { auth } from "../firebase-config.js";
 
-auth.onAuthStateChanged(user => {
+onAuthStateChanged(auth, (user) => {
   if (!user) {
-    alert("You must be logged in to access this page.");
+    // ❌ User not logged in
     window.location.href = "provider-login.html";
+  } else {
+    console.log("✅ Authenticated user:", user.email);
   }
 });
