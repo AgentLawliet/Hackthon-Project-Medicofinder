@@ -80,3 +80,31 @@ button:hover {
 .dynamic-field {
   width: 100%;
 }
+.result-card {
+  background-color: #ffffff; /* Solid white */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Take full width of container, not the page */
+}
+
+
+.result-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333333; /* Strong dark color */
+  font-weight: bold;
+}
+
+.result-card p {
+  margin: 0.25rem 0;
+  color: #faf6f6; /* Clear gray text */
+  font-size: 1rem;
+}
+
+#results p {
+  text-align: center;
+  color: #d9534f; /* Bootstrap's danger red shade (good for errors) */
+  font-weight: bold;
+}

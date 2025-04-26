@@ -97,7 +97,7 @@ searchBtn.addEventListener("click", async () => {
 function displayResults(docs) {
     const html = docs.map((doc) => `
         <div class="result-card">
-            <h3>${doc.name || "Resource Name"}</h3>
+            <h3>${doc.name || "Available Resource"}</h3>
             <p>Type: ${doc.type}</p>
             <p>Quantity: ${doc.quantity}</p>
             ${doc.type === "blood" ? `<p>Blood Group: ${doc.bloodGroup || "N/A"}</p>` : ""}
