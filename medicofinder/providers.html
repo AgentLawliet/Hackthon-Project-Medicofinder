@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MedicoFinder - Provider</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" >
+  <link rel="stylesheet" href="styles.css">
   
-  <!-- Firebase SDKs with type="module" -->
+  <!-- Firebase SDKs -->
   <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
   <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
 </head>
@@ -16,19 +16,64 @@
     <div class="container">
       <h2>Submit a Medical Resource</h2>
       <form id="providerForm">
-        <input type="text" id="name" placeholder="Resource Name" required>
+
+
+        <!-- Type Dropdown -->
+        <select id="type" required>
+          <option value="">Select Resource Type</option>
+          <option value="medicine">Medicine</option>
+          <option value="equipment">Equipment</option>
+          <option value="blood">Blood</option>
+        </select>
+        <!-- Resource Name Field (conditionally displayed for Medicine) -->
+        <div id="medicineNameField" style="display: none;">
+          <input type="text" id="medicineName" placeholder="Enter Medicine Name">
+        </div>
+
+        <!-- Blood Group Dropdown -->
+        <div id="bloodOptions" style="display: none;">
+          <select id="bloodGroup">
+            <option value="">Select Blood Group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+        </div>
+
+        <!-- Equipment Dropdown -->
+        <div id="equipmentOptions" style="display: none;">
+          <select id="equipmentType">
+            <option value="">Select Equipment</option>
+            <option value="ventilator">Ventilator</option>
+            <option value="inhaler">Inhaler</option>
+            <option value="oxygen cylinder">Oxygen Cylinder</option>
+            <option value="nebulizer">Nebulizer</option>
+            <option value="cpap machine">CPAP Machine</option>
+            <option value="defibrillator">Defibrillator</option>
+            <option value="wheelchair">Wheelchair</option>
+            <option value="thermometer">Thermometer</option>
+          </select>
+        </div>
+        <!-- Quantity Field -->
         <input type="number" id="quantity" placeholder="Quantity" required>
-        <input type="text" id="type" placeholder="Resource Type (optional)">
-        <input type="text" id="localArea" placeholder="eg: Kargi Chowk" required>
-        <input type="text" id="city" placeholder="eg: Dehradun" required>
-        <input type="tel" id="contact" placeholder="eg: +91 9836830510" required>
+
+        <!-- Location Fields -->
+        <input type="text" id="localArea" placeholder="Local Area: e.g., Kargi Chowk" required>
+        <input type="text" id="city" placeholder="City: e.g., Dehradun" required>
+        <input type="tel" id="contact" placeholder="Contact: e.g., +91 9836830510" required>
+
+        <!-- Submit and Logout Buttons -->
         <button type="submit">Submit Resource</button>
-        <button id="logoutBtn">
-          Logout
-        </button>
+        <button id="logoutBtn">Logout</button>
       </form>
       
-      <div id="response"></div>
+      <!-- Response Div -->
+      <div id="response" aria-live="polite"></div>
     </div>
   </div>
   <script type="module" src="js/auth/auth-guard.js"></script>

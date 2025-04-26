@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const responseDiv = document.getElementById("response");
 
   if (!loginForm || !googleLoginBtn || !responseDiv) {
-    console.error("One or more DOM elements not found:", {
-      loginForm,
-      googleLoginBtn,
-      responseDiv
-    });
+    console.error("One or more DOM elements not found:", { loginForm, googleLoginBtn, responseDiv });
     return;
   }
+
+  const showMessage = (message, isSuccess = false) => {
+    responseDiv.innerHTML = `<p style="color:${isSuccess ? "green" : "red"};">${message}</p>`;
+  };
 
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -27,14 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const providerDoc = await getDoc(doc(db, "providers", user.uid));
       if (!providerDoc.exists()) {
-        responseDiv.innerHTML = `<p style="color:red;">❌ Please register first.</p>`;
+        showMessage("❌ Please register first.");
         return;
       }
 
-      responseDiv.innerHTML = `<p style="color:green;">✅ Logged in! Loading...</p>`;
+      showMessage("✅ Logged in! Loading...", true);
       setTimeout(() => window.location.href = "providers.html", 1000);
     } catch (error) {
-      responseDiv.innerHTML = `<p style="color:red;">❌ Wrong email or password.</p>`;
+      console.error(error);
+      showMessage("❌ Wrong email or password.");
     }
   });
 
@@ -45,14 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const providerDoc = await getDoc(doc(db, "providers", user.uid));
       if (!providerDoc.exists()) {
-        responseDiv.innerHTML = `<p style="color:red;">❌ Please register first.</p>`;
+        showMessage("❌ Please register first.");
         return;
       }
 
-      responseDiv.innerHTML = `<p style="color:green;">✅ Logged in! Loading...</p>`;
+      showMessage("✅ Logged in! Loading...", true);
       setTimeout(() => window.location.href = "providers.html", 1000);
     } catch (error) {
-      responseDiv.innerHTML = `<p style="color:red;">❌ Google login failed. Try again.</p>`;
+      console.error(error);
+      showMessage("❌ Google login failed. Try again.");
     }
   });
 });

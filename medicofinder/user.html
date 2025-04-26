@@ -2,21 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Find Medical Resources</title>
-    <link rel="stylesheet" href="userstyle.css"> <!-- ✅ New CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Medical Resources</title>
+    <!-- Correct CSS reference -->
+    <link rel="stylesheet" href="userstyle.css">
 </head>
 <body>
-    <h2>Search for Medical Resources</h2>
-    
+
     <div class="search-container">
-        <input type="text" id="areaInput" placeholder="Enter local area or city">
-        <input type="text" id="nameInput" placeholder="Enter resource name ">
-        <input type="number" id="quantityInput" placeholder="Min quantity ">
+        <h2 class="search-heading">Search for Medical Resources</h2>
+    
+        <!-- Area Input -->
+        <input type="text" id="areaInput" placeholder="Enter Local Area or City">
+    
+        <!-- Resource Type Dropdown -->
+        <select id="typeInput">
+            <option value="">Select Resource Type</option>
+            <option value="medicine">Medicine</option>
+            <option value="equipment">Equipment</option>
+            <option value="blood">Blood</option>
+        </select>
+    
+        <!-- Dynamic Dropdown for Blood Group -->
+        <div id="bloodOptions" class="dynamic-field" style="display: none;">
+            <select id="bloodTypeInput">
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+    
+        <!-- Dynamic Dropdown for Equipment Type -->
+        <div id="equipmentOptions" class="dynamic-field" style="display: none;">
+            <select id="equipmentTypeInput">
+                <option value="">Select Equipment</option>
+                <option value="ventilator">Ventilator</option>
+                <option value="oxygen cylinder">Oxygen Cylinder</option>
+                <option value="defibrillator">Defibrillator</option>
+                <option value="wheelchair">Wheelchair</option>
+            </select>
+        </div>
+    
+        <!-- Dynamic Field for Medicine Name -->
+        <div id="medicineNameField" class="dynamic-field" style="display: none;">
+            <input type="text" id="medicineNameInput" placeholder="Enter Medicine Name">
+        </div>
+    
+        <!-- Quantity Input -->
+        <input type="number" id="quantityInput" placeholder="Enter Minimum Quantity">
+    
+        <!-- Search Button -->
         <button id="searchBtn">Search</button>
     </div>
     
+
+    <!-- Results Section -->
     <div id="results"></div>
-    
+
+    <!-- Correct JS File Reference -->
     <script type="module" src="js/user.js"></script>
 </body>
 </html>

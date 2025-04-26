@@ -4,6 +4,8 @@
   --primary-color: #2c3e50;
   --secondary-color: #34495e;
   --accent-color: #3498db;
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
 }
 
 * {
@@ -16,11 +18,11 @@ body, html {
   height: 100%;
   font-family: var(--primary-font);
   line-height: 1.6;
-  font-size: 1.25rem; /* Larger global font size */
+  font-size: 1.25rem; /* Global font size */
 }
 
 .background-overlay {
-  background-image: url(bg/ambulance.webp);
+  background-image: url(bg/supply.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,7 +52,7 @@ body, html {
   z-index: 10;
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 1.1rem; /* Slightly larger font inside the container */
+  font-size: 1.1rem; /* Slightly larger font in the form container */
 }
 
 h2 {
@@ -66,7 +68,7 @@ h2 {
   gap: 1rem;
 }
 
-input {
+input, select {
   padding: 0.75rem;
   border: 1px solid #d1d8e0;
   border-radius: 5px;
@@ -75,10 +77,28 @@ input {
   transition: all 0.3s ease;
 }
 
-input:focus {
+input:focus, select:focus {
   outline: none;
   border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Hidden by default: Blood Group Dropdown */
+#bloodOptions {
+  display: none;
+  margin-top: -1rem; /* Adjust spacing for seamless appearance */
+}
+
+/* Hidden by default: Equipment Dropdown */
+#equipmentOptions {
+  display: none;
+  margin-top: -1rem; /* Adjust spacing for seamless appearance */
+}
+
+/* Hidden by default: Medicine Name Input */
+#medicineNameField {
+  display: none;
+  margin-top: -1rem;
 }
 
 button {
@@ -98,8 +118,26 @@ button:hover {
   background-color: #2980b9;
 }
 
+/* Response messages styling */
 #response {
   margin-top: 1rem;
   text-align: center;
   font-family: var(--primary-font);
+  font-size: 1rem;
+}
+
+#response p {
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+#response p.success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+#response p.error {
+  background-color: var(--error-color);
+  color: white;
 }
