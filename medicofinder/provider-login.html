@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Provider Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Provider Login</h2>
-  <form id="loginForm">
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
-
-  <!-- Use ES module -->
-  <script type="module" src="../js/auth/provider-login.js"></script>
+  <div class="background-overlay">
+    <div class="container">
+      <h2>Provider Login</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <button id="googleLoginBtn" style="background-color: #4285F4; margin-top: 1rem;">Sign in with Google</button>
+      <div id="response"></div>
+    </div>
+  </div>
+  <script type="module" src="js/auth/provider-login.js"></script>
 </body>
 </html>

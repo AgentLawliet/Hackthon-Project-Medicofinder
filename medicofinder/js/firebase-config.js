@@ -5,9 +5,13 @@ import {
   addDoc,
   getDocs,
   query,
-  where
+  where,
+  doc,
+  setDoc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCYuMZy0O8M37lftyv67OAxRIgRc5rLZ9U",
   authDomain: "fir-firebase-8f21e.firebaseapp.com",
@@ -20,6 +24,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
-export { db, collection, addDoc, getDocs, query, where };
-export const auth = getAuth(app);
+export { db, collection, addDoc, getDocs, query, where, doc, setDoc, getDoc, auth, googleProvider };
