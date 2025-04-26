@@ -86,7 +86,7 @@ searchBtn.addEventListener("click", async () => {
         // Display results
         filteredResults.length > 0
             ? displayResults(filteredResults)
-            : (resultsDiv.innerHTML = "<p>No matching resources found.</p>");
+            : (resultsDiv.innerHTML = `<p class="result-card">No matching resources found.</p>`);
     } catch (error) {
         console.error("Error fetching resources:", error);
         resultsDiv.innerHTML = `<p style="color:red;">❌ Error fetching resources: ${error.message}</p>`;
