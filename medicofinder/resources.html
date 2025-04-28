@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedicoFinder - My Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources.css"> <!-- Adjusted path to css/resources.css -->
+  
+  <!-- Firebase SDKs -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <div class="background-overlay">
+    <div class="container">
+      <h2>My Resources</h2>
+      <div id="resourcesList"></div>
+      <div class="button-group">
+        <button id="addNewResourceBtn" type="button">Add New Resource</button>
+        <button id="logoutBtn" type="button">Logout</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="js/auth/auth-guard.js"></script>
+  <script type="module" src="js/resources.js"></script>
+</body>
+</html>

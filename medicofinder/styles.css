@@ -141,3 +141,10 @@ button:hover {
   background-color: var(--error-color);
   color: white;
 }
+.resource-item {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}

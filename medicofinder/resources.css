@@ -1,0 +1,192 @@
+/* Define custom variables inspired by the reference */
+:root {
+    --base-font: 'Inter', sans-serif;
+    --heading-font: 'Roboto', sans-serif;
+    --main-color: #1a2a44;
+    --highlight-color: #3d5a80;
+    --action-color: #98c1d9;
+    --danger-color: #ee6c4d;
+    --success-color: #4caf50;
+    --card-bg: #f1faee;
+  }
+  
+  /* Reset and global styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: var(--base-font);
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  /* Background overlay inspired by the reference */
+  .background-overlay {
+    background-image: url('../bg/supply.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: auto;
+  }
+  
+  .background-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Slightly darker overlay */
+    z-index: 1;
+  }
+  
+  /* Container styling */
+  .container {
+    background: rgba(241, 250, 238, 0.95); /* Light green tint from --card-bg */
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 1300px;
+    margin: 20px auto;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Heading */
+  h2 {
+    text-align: center;
+    color: var(--main-color);
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Horizontal resource layout */
+  #resourcesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  
+  /* Resource card styling */
+  .resource-item {
+    background-color: var(--card-bg);
+    border: 2px solid var(--highlight-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Hover effect for interactivity */
+  .resource-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Resource text */
+  .resource-item p {
+    margin: 8px 0;
+    color: var(--main-color);
+    font-size: 1rem;
+  }
+  
+  /* Buttons styling */
+  .resource-item button,
+  #addNewResourceBtn,
+  #logoutBtn {
+    display: inline-block;
+    margin: 5px 5px 0 0;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--heading-font);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Edit button */
+  .resource-item button:nth-child(1) {
+    background-color: var(--action-color);
+    color: white;
+  }
+  
+  .resource-item button:nth-child(1):hover {
+    background-color: #6d9dc5;
+    transform: scale(1.05);
+  }
+  
+  /* Delete button */
+  .resource-item button:nth-child(2) {
+    background-color: var(--danger-color);
+    color: white;
+  }
+  
+  .resource-item button:nth-child(2):hover {
+    background-color: #d35400;
+    transform: scale(1.05);
+  }
+  
+  /* Add New Resource button */
+  #addNewResourceBtn {
+    background-color: var(--success-color);
+    color: white;
+    margin-top: 1.5rem;
+  }
+  
+  #addNewResourceBtn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  /* Logout button */
+  #logoutBtn {
+    background-color: var(--highlight-color);
+    color: white;
+    margin-top: 1rem;
+  }
+  
+  #logoutBtn:hover {
+    background-color: #2e4a6b;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem;
+      width: 95%;
+    }
+  
+    .resource-item {
+      width: 100%;
+      max-width: 350px;
+    }
+  
+    #resourcesList {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }

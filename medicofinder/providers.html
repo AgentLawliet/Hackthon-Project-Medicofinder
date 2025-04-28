@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedicoFinder - Provider</title>
+  <title>MedicoFinder - Add Resource</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   
@@ -14,10 +14,8 @@
 <body>
   <div class="background-overlay">
     <div class="container">
-      <h2>Submit a Medical Resource</h2>
+      <h2>Add a Medical Resource</h2>
       <form id="providerForm">
-
-
         <!-- Type Dropdown -->
         <select id="type" required>
           <option value="">Select Resource Type</option>
@@ -68,8 +66,8 @@
         <input type="tel" id="contact" placeholder="Contact: e.g., +91 9836830510" required>
 
         <!-- Submit and Logout Buttons -->
-        <button type="submit">Submit Resource</button>
-        <button id="logoutBtn">Logout</button>
+        <button type="submit" id="submitBtn">Submit Resource</button>
+        <button id="logoutBtn" type="button">Logout</button>
       </form>
       
       <!-- Response Div -->
@@ -78,5 +76,3 @@
   </div>
   <script type="module" src="js/auth/auth-guard.js"></script>
   <script type="module" src="js/provider.js"></script>
-</body>
-</html>

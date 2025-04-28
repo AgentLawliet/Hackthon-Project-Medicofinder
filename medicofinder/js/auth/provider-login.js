@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       showMessage("✅ Logged in! Loading...", true);
-      setTimeout(() => window.location.href = "providers.html", 1000);
+      setTimeout(() => window.location.href = "resources.html", 1000);
     } catch (error) {
       console.error(error);
       showMessage("❌ Wrong email or password.");
